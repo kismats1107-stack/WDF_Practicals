@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #eef5ff;
+        }
+
+        header {
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            position: relative;
+        }
+
+        header h1 {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 5px black;
+            animation: heading 2s infinite alternate;
+        }
+
+        @keyframes heading {
+            from {
+                letter-spacing: 3px;
+            }
+
+            to {
+                letter-spacing: 8px;
+            }
+        }
+
+
+        #themeBtn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 8px;
+            background: white;
+            color: #1e3a8a;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        #themeBtn:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+
+        nav {
+            background: #2563eb;
+            text-align: center;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: .4s;
+        }
+
+        nav a:hover {
+            color: yellow;
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+
+        main {
+            width: 90%;
+            margin: auto;
+            padding: 30px 0;
+        }
+
+
+        .about {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px gray;
+            line-height: 30px;
+            margin-bottom: 30px;
+        }
+
+        .about h2 {
+            color: #1e3a8a;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px lightgray;
+            margin-bottom: 15px;
+        }
+
+
+
+        .faq-container {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 0 15px gray;
+        }
+
+        .faq-container h2 {
+            color: #1e3a8a;
+
+            text-transform: uppercase;
+
+            text-shadow: 2px 2px 4px lightgray;
+
+            margin-bottom: 20px;
+        }
+
+
+
+        dt {
+            background: #2563eb;
+            color: white;
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        dt:first-child {
+            margin-top: 0;
+        }
+
+        dt:hover {
+            background: #1e3a8a;
+        }
+
+
+        dd {
+            background: #dbeafe;
+            color: #333;
+            padding: 15px 20px;
+            margin: 0;
+            border-left: 5px solid #2563eb;
+            line-height: 28px;
+            border-radius: 0 0 8px 8px;
+        }
+
+
+        .notice {
+            margin-top: 30px;
+
+            background: white;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 0 12px gray;
+
+            line-height: 30px;
+
+            text-align: center;
+        }
+
+        .notice h2 {
+            color: #1e3a8a;
+
+            margin-bottom: 10px;
+        }
+
+
+        #helpBtn {
+            background: #2563eb;
+
+            color: white;
+
+            border: none;
+
+            padding: 10px 18px;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            margin-top: 10px;
+
+            transition: .3s;
+        }
+
+        #helpBtn:hover {
+            background: #1e3a8a;
+        }
+
+
+        #notification {
+            background: #dbeafe;
+
+            color: #1e3a8a;
+
+            text-align: center;
+
+            padding: 12px;
+
+            font-weight: bold;
+
+            border-bottom: 1px solid #93c5fd;
+        }
+
+        #menuBtn {
+            display: none;
+
+            position: absolute;
+            left: 20px;
+            top: 20px;
+
+            background: white;
+            color: #1e3a8a;
+
+            border: none;
+            border-radius: 8px;
+
+            padding: 10px 14px;
+
+            font-size: 22px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        #menuBtn:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+
+        #modal {
+            display: none;
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0, 0, 0, 0.6);
+
+            justify-content: center;
+            align-items: center;
+
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: white;
+
+            width: 90%;
+            max-width: 450px;
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 0 20px black;
+
+            text-align: center;
+        }
+
+        .modal-content h2 {
+            color: #1e3a8a;
+
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            line-height: 28px;
+
+            margin-bottom: 20px;
+        }
+
+        #closeModal {
+            background: #2563eb;
+
+            color: white;
+
+            border: none;
+
+            padding: 10px 18px;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+        }
+
+        #closeModal:hover {
+            background: #1e3a8a;
+        }
+
+
+        /* =========================
+       FOOTER
+    ========================== */
+
+        footer {
+            margin-top: 40px;
+
+            background: #1e3a8a;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 20px;
+        }
+
+
+        /* =========================
+       DARK THEME
+    ========================== */
+
+        .dark {
+            background: #1b1b1b;
+            color: white;
+        }
+
+        .dark .about,
+        .dark .faq-container,
+        .dark .notice {
+            background: #2b2b2b;
+            color: white;
+        }
+
+        .dark dt {
+            background: #0f4c81;
+        }
+
+        .dark dt:hover {
+            background: #155e91;
+        }
+
+        .dark dd {
+            background: #333;
+            color: white;
+            border-left-color: #66b3ff;
+        }
+
+        .dark h2 {
+            color: #66b3ff;
+        }
+
+        .dark nav {
+            background: #0f4c81;
+        }
+
+        .dark header {
+            background: #111;
+        }
+
+        .dark footer {
+            background: #111;
+        }
+
+        .dark .modal-content {
+            background: #2b2b2b;
+            color: white;
+        }
+
+        .dark .modal-content h2 {
+            color: #66b3ff;
+        }
+
+
+        /* =========================
+       RESPONSIVE DESIGN
+    ========================== */
+
+        @media (max-width: 900px) {
+
+            nav a {
+                margin: 0 8px;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            #themeBtn {
+                position: absolute;
+                right: 20px;
+                top: 20px;
+            }
+
+            #menuBtn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            main {
+                width: 95%;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            header {
+                padding: 20px 10px;
+            }
+
+            header h1 {
+                font-size: 20px;
+            }
+
+            .about,
+            .faq-container,
+            .notice {
+                padding: 18px;
+            }
+
+            dt {
+                padding: 13px 15px;
+            }
+
+            dd {
+                padding: 13px 15px;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Frequently Asked Questions (FAQ)</h1>
+
+        <button id="themeBtn">🌙 Dark</button>
+        <button id="menuBtn">☰</button>
+    </header>
+
+    <div id="notification">
+        📢 Welcome to StudentHub FAQ! Click any question to view its answer.
+    </div>
+
+
+    <nav>
+        <a href="Home.html">Home</a>
+        <a href="Dashboard.html">Dashboard</a>
+        <a href="Events.html">Events</a>
+        <a href="#">FAQ</a>
+        <a href="ContactUs.html">Contact Us</a>
+        <a href="Login.html">Log Out</a>
+    </nav>
+
+
+    <main>
+
+        <!-- FAQ Introduction -->
+
+        <section class="about">
+
+            <h2>Frequently Asked Questions</h2>
+
+            <p>
+                Find answers to some of the most common questions asked by students.
+            </p>
+
+        </section>
+
+
+        <!-- FAQ Questions -->
+
+        <section class="faq-container">
+
+            <h2>Common Questions</h2>
+
+            <dl>
+
+                <dt>
+                    <strong>1. How can I apply for admission?</strong>
+                </dt>
+
+                <dd>
+                    Visit the Admissions page and follow the admission process.
+                </dd>
+
+
+                <dt>
+                    <strong>2. Where can I see upcoming events?</strong>
+                </dt>
+
+                <dd>
+                    All upcoming events are available on the Events page.
+                </dd>
+
+
+                <dt>
+                    <strong>3. How do I contact the college?</strong>
+                </dt>
+
+                <dd>
+                    Visit the Contact Us page for phone number, email, and address.
+                </dd>
+
+
+                <dt>
+                    <strong>4. Where can I view my achievements?</strong>
+                </dt>
+
+                <dd>
+                    Student achievements are listed on the Achievements page.
+                </dd>
+
+
+                <dt>
+                    <strong>5. How can I log out?</strong>
+                </dt>
+
+                <dd>
+                    Click the Log Out link in the navigation menu.
+                </dd>
+
+            </dl>
+
+        </section>
+
+
+        <!-- Need More Help -->
+
+        <aside class="notice">
+
+            <h2>Need More Help?</h2>
+
+            <p>
+                If your question is not listed here, please visit the Contact Us
+                page or contact the college administration.
+            </p>
+
+            <button id="helpBtn">Contact Administration</button>
+
+        </aside>
+
+    </main>
+
+
+    <footer>
+
+        <p>&copy; 2026 StudentHub Portal. All Rights Reserved.</p>
+
+    </footer>
+
+    <div id="modal">
+
+        <div class="modal-content">
+
+            <h2>Need More Help?</h2>
+
+            <p>
+                Please contact the college administration through the
+                Contact Us page for further assistance.
+            </p>
+
+            <button id="closeModal">Close</button>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        /* =========================
+           COLLAPSIBLE FAQ
+        ========================= */
+
+        const questions = document.querySelectorAll("dt");
+
+        questions.forEach(function (question) {
+
+            const answer = question.nextElementSibling;
+
+            // Hide answer when page loads
+            answer.style.display = "none";
+
+            question.onclick = function () {
+
+                if (answer.style.display === "none") {
+
+                    answer.style.display = "block";
+                }
+                else {
+                    answer.style.display = "none";
+                }
+            };
+        });
+
+
+
+        /* =========================
+           MODAL POPUP
+        ========================== */
+
+        const helpBtn = document.getElementById("helpBtn");
+
+        const modal = document.getElementById("modal");
+
+        const closeModal = document.getElementById("closeModal");
+
+
+        helpBtn.onclick = function () {
+
+            modal.style.display = "flex";
+
+        };
+
+
+        closeModal.onclick = function () {
+
+            modal.style.display = "none";
+
+        };
+
+
+        /* Close modal when clicking outside */
+
+        modal.onclick = function (event) {
+
+            if (event.target === modal) {
+
+                modal.style.display = "none";
+
+            }
+
+        };
+
+
+        /* =========================
+           NOTIFICATION BANNER
+        ========================== */
+
+        const notification = document.getElementById("notification");
+
+
+        setTimeout(function () {
+
+            notification.style.display = "none";
+
+        }, 5000);
+
+
+        /* =========================
+           HAMBURGER MENU
+        ========================== */
+
+        const menuBtn = document.getElementById("menuBtn");
+
+        const nav = document.querySelector("nav");
+
+
+        menuBtn.onclick = function () {
+
+            if (nav.style.display === "block") {
+
+                nav.style.display = "none";
+
+            }
+            else {
+
+                nav.style.display = "block";
+
+            }
+
+        };
+
+
+        /* =========================
+           LIGHT / DARK THEME
+        ========================== */
+
+        const themeBtn = document.getElementById("themeBtn");
+
+
+        themeBtn.onclick = function () {
+
+            document.body.classList.toggle("dark");
+
+
+            if (document.body.classList.contains("dark")) {
+
+                themeBtn.innerHTML = "☀ Light";
+
+            }
+            else {
+
+                themeBtn.innerHTML = "🌙 Dark";
+
+            }
+
+        };
+
+    </script>
+
+</body>
+
+</html>

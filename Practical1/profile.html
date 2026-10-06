@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile | EduPortal</title>
+    <link rel="stylesheet" href="satyle.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="dashboard.html" class="nav-brand">
+                <div class="brand-icon">🎓</div>
+                <span>EduPortal</span>
+            </a>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="attendance.html">Attendance</a></li>
+                <li><a href="assignments.html">Assignments</a></li>
+                <li><a href="study.html">Study Materials</a></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
+                <li><a href="login.html">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Header -->
+        <header class="hero">
+            <h1>Student <span>Profile</span></h1>
+            <p>View your personal academic records, enrollment details, and institutional information.</p>
+        </header>
+
+        <!-- Profile Section -->
+        <section>
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="image.jpg" alt="Student Profile Picture" class="profile-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Kismat+Shah&background=4f46e5&color=fff&size=150'">
+                    <h2>Kismat Shah</h2>
+                    <p>Enrollment: <b>25CS099</b> | B.Tech CSE</p>
+                </div>
+                <div class="profile-body">
+                    <div class="profile-info-grid">
+                        <div class="info-item">
+                            <div class="info-label">Full Name</div>
+                            <div class="info-value">Kismat Shah</div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Enrollment No</div>
+                            <div class="info-value">25CS099</div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Department</div>
+                            <div class="info-value">Computer Science Eng.</div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Current Semester</div>
+                            <div class="info-value">Semester 3</div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Email Address</div>
+                            <div class="info-value">kismats1107@gmail.com</div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Phone Number</div>
+                            <div class="info-value">+91 8200080468</div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Date of Birth</div>
+                            <div class="info-value">12 November 2007</div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Blood Group</div>
+                            <div class="info-value">B+</div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Address</div>
+                            <div class="info-value">Ahmedabad, Gujarat</div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">University / College</div>
+                            <div class="info-value">CHARUSAT University</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Performance Table -->
+        <section>
+            <h2 class="section-title">Academic History</h2>
+            <div class="table-container" style="max-width: 680px; margin: 0 auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Degree Course</th>
+                            <th>Semester</th>
+                            <th>Division</th>
+                            <th>CGPA</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>B.Tech CSE</b></td>
+                            <td>Semester 1</td>
+                            <td>A</td>
+                            <td><b>8.3</b></td>
+                            <td><span class="badge badge-success">Passed</span></td>
+                        </tr>
+                        <tr>
+                            <td><b>B.Tech CSE</b></td>
+                            <td>Semester 2</td>
+                            <td>A</td>
+                            <td><b>8.1</b></td>
+                            <td><span class="badge badge-success">Passed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            © 2026 Student Management Portal. All rights reserved.
+            <br>
+            <span class="developer-tag">Developed by Kismat Shah</span>
+        </p>
+    </footer>
+
+</body>
+
+</html>

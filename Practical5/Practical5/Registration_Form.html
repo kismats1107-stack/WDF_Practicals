@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Registration Form</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f2f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 500px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c8f8f;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #2c8f8f;
+        }
+
+        .gender {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .gender label {
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .gender input {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        .terms {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .terms input {
+            width: auto;
+        }
+
+        .terms label {
+            margin: 0;
+            font-weight: normal;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #2c8f8f;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #237575;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        .success {
+            color: green;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Student Registration Form</h2>
+
+    <form id="registrationForm">
+
+        <!-- Name -->
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your full name">
+            <div id="nameError" class="error"></div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email">
+            <div id="emailError" class="error"></div>
+        </div>
+
+        <!-- Mobile -->
+        <div class="form-group">
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" placeholder="Enter 10 digit mobile number"
+                   maxlength="10">
+            <div id="mobileError" class="error"></div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter password">
+            <div id="passwordError" class="error"></div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword"
+                   placeholder="Re-enter password">
+            <div id="confirmPasswordError" class="error"></div>
+        </div>
+
+        <!-- Course -->
+        <div class="form-group">
+            <label for="course">Course</label>
+            <select id="course">
+                <option value="">Select Course</option>
+                <option value="CSE">Computer Science</option>
+                <option value="IT">Information Technology</option>
+                <option value="CE">Computer Engineering</option>
+                <option value="AI">Artificial Intelligence</option>
+                <option value="EC">Electronics & Communication</option>
+            </select>
+            <div id="courseError" class="error"></div>
+        </div>
+
+        <!-- Year -->
+        <div class="form-group">
+            <label for="year">Year</label>
+            <select id="year">
+                <option value="">Select Year</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+            </select>
+            <div id="yearError" class="error"></div>
+        </div>
+
+        <!-- Gender -->
+        <div class="form-group">
+            <label>Gender</label>
+
+            <div class="gender">
+                <label>
+                    <input type="radio" name="gender" value="Male">
+                    Male
+                </label>
+
+                <label>
+                    <input type="radio" name="gender" value="Female">
+                    Female
+                </label>
+
+                <label>
+                    <input type="radio" name="gender" value="Other">
+                    Other
+                </label>
+            </div>
+
+            <div id="genderError" class="error"></div>
+        </div>
+
+        <!-- Terms -->
+        <div class="terms">
+            <input type="checkbox" id="terms">
+
+            <label for="terms">
+                I accept the terms and conditions
+            </label>
+        </div>
+
+        <div id="termsError" class="error"></div>
+
+        <br>
+
+        <button type="submit">Register</button>
+
+        <div id="successMessage" class="success"></div>
+
+    </form>
+</div>
+
+
+<script>
+
+    document.getElementById("registrationForm").addEventListener("submit",
+        function(event) {
+
+            event.preventDefault();
+
+            // Get values
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let mobile = document.getElementById("mobile").value.trim();
+            let password = document.getElementById("password").value;
+            let confirmPassword =
+                document.getElementById("confirmPassword").value;
+
+            let course = document.getElementById("course").value;
+            let year = document.getElementById("year").value;
+
+            let gender =
+                document.querySelector('input[name="gender"]:checked');
+
+            let terms = document.getElementById("terms").checked;
+
+            // Regular Expressions
+
+            // Name: only alphabets and spaces
+            let nameRegex = /^[A-Za-z ]{3,50}$/;
+
+            // Email validation
+            let emailRegex =
+                /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+            // Mobile: exactly 10 digits, starting from 6-9
+            let mobileRegex = /^[6-9][0-9]{9}$/;
+
+            // Password:
+            // Minimum 8 characters
+            // At least one uppercase
+            // At least one lowercase
+            // At least one number
+            // At least one special character
+            let passwordRegex =
+                /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&]).{8,}$/;
+
+
+            // Clear previous errors
+            document.querySelectorAll(".error").forEach(function(error) {
+                error.innerHTML = "";
+            });
+
+            document.getElementById("successMessage").innerHTML = "";
+
+            let isValid = true;
+
+
+            // Name validation
+            if (!nameRegex.test(name)) {
+                document.getElementById("nameError").innerHTML =
+                    "Name must contain only alphabets and be at least 3 characters.";
+                isValid = false;
+            }
+
+
+            // Email validation
+            if (!emailRegex.test(email)) {
+                document.getElementById("emailError").innerHTML =
+                    "Enter a valid email address.";
+                isValid = false;
+            }
+
+
+            // Mobile validation
+            if (!mobileRegex.test(mobile)) {
+                document.getElementById("mobileError").innerHTML =
+                    "Enter a valid 10-digit mobile number.";
+                isValid = false;
+            }
+
+
+            // Password validation
+            if (!passwordRegex.test(password)) {
+                document.getElementById("passwordError").innerHTML =
+                    "Password must contain 8+ characters, uppercase, lowercase, number and special character.";
+                isValid = false;
+            }
+
+
+            // Confirm password validation
+            if (password !== confirmPassword) {
+                document.getElementById("confirmPasswordError").innerHTML =
+                    "Passwords do not match.";
+                isValid = false;
+            }
+
+
+            // Course validation
+            if (course === "") {
+                document.getElementById("courseError").innerHTML =
+                    "Please select a course.";
+                isValid = false;
+            }
+
+
+            // Year validation
+            if (year === "") {
+                document.getElementById("yearError").innerHTML =
+                    "Please select your year.";
+                isValid = false;
+            }
+
+
+            // Gender validation
+            if (!gender) {
+                document.getElementById("genderError").innerHTML =
+                    "Please select your gender.";
+                isValid = false;
+            }
+
+
+            // Terms validation
+            if (!terms) {
+                document.getElementById("termsError").innerHTML =
+                    "You must accept the terms and conditions.";
+                isValid = false;
+            }
+
+
+            // If everything is valid
+            if (isValid) {
+
+                document.getElementById("successMessage").innerHTML =
+                    "Registration Successful!";
+
+                document.getElementById("registrationForm").reset();
+            }
+
+        });
+
+</script>
+
+</body>
+</html>
