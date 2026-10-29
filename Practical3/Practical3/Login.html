@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            background-color:#dbeafe;
+            font-family:Arial, sans-serif;
+        }
+
+        .login-box{
+            width:350px;
+            margin:120px auto;
+            background-color:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0px 0px 15px gray;
+            text-align:center;
+        }
+
+        h1{
+            color:#1e3a8a;
+            text-shadow:2px 2px 4px lightgray;
+            margin-bottom:25px;
+        }
+
+        input[type="text"],
+        input[type="password"]{
+            width:90%;
+            padding:10px;
+            margin-top:8px;
+            margin-bottom:15px;
+            border:1px solid gray;
+            border-radius:8px;
+            box-shadow:2px 2px 6px lightgray;
+            font-size:16px;
+        }
+
+        input[type="submit"]{
+            background-color:#2563eb;
+            color:white;
+            padding:10px 25px;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            font-size:16px;
+            box-shadow:2px 2px 6px gray;
+        }
+
+        input[type="submit"]:hover{
+            background-color:#1d4ed8;
+            box-shadow:0px 0px 12px #2563eb;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="login-box">
+
+        <h1>Login Your Account</h1>
+
+        <form action="Home.html" method="post">
+
+            Enter UserName:- <br>
+            <input type="text" name="username"><br>
+
+            Enter Password:- <br>
+            <input type="password" name="password"><br>
+
+            <input type="submit" value="Submit">
+
+        </form>
+
+    </div>
+
+</body>
+</html>

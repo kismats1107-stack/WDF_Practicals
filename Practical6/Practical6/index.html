@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practical 6 - Student List</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .controls { margin-bottom: 15px; }
+    input, select, button { padding: 8px; margin-right: 10px; }
+    .student-card { border: 1px solid #ccc; padding: 10px; margin-bottom: 8px; border-radius: 4px; }
+    .pagination { margin-top: 15px; display: flex; align-items: center; gap: 10px; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+
+  <h2>Student Management System</h2>
+
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="Search by name or department...">
+    
+    <label for="sortSelect">Sort By:</label>
+    <select id="sortSelect">
+      <option value="default">Default</option>
+      <option value="name-asc">Name (A to Z)</option>
+      <option value="name-desc">Name (Z to A)</option>
+      <option value="marks-desc">Marks (High to Low)</option>
+      <option value="marks-asc">Marks (Low to High)</option>
+    </select>
+  </div>
+
+  <div id="studentContainer"></div>
+
+  <div class="pagination">
+    <button id="prevBtn">Previous</button>
+    <span id="pageInfo">Page 0 of 0</span>
+    <button id="nextBtn">Next</button>
+  </div>
+
+  <script>
+    const ITEMS_PER_PAGE = 5; 
+
+    const rawJSONData = `[
+      { "id": 1, "name": "Aarav Sharma", "department": "Computer Science", "marks": 85 },
+      { "id": 2, "name": "Bhavya Patel", "department": "Information Technology", "marks": 92 },
+      { "id": 3, "name": "Chirag Verma", "department": "Electronics", "marks": 78 },
+      { "id": 4, "name": "Diyana Shah", "department": "Computer Science", "marks": 88 },
+      { "id": 5, "name": "Esha Mehta", "department": "Mechanical", "marks": 65 },
+      { "id": 6, "name": "Farhan Khan", "department": "Information Technology", "marks": 74 },
+      { "id": 7, "name": "Gaurav Joshi", "department": "Civil", "marks": 81 },
+      { "id": 8, "name": "Hetvi Desai", "department": "Computer Science", "marks": 95 },
+      { "id": 9, "name": "Ishan Trivedi", "department": "Electronics", "marks": 69 },
+      { "id": 10, "name": "Jiya Rathod", "department": "Information Technology", "marks": 89 },
+      { "id": 11, "name": "Karan Gupta", "department": "Mechanical", "marks": 72 },
+      { "id": 12, "name": "Kavya Pandya", "department": "Computer Science", "marks": 91 },
+      { "id": 13, "name": "Manav Bhatt", "department": "Civil", "marks": 63 },
+      { "id": 14, "name": "Neha Prajapati", "department": "Information Technology", "marks": 84 },
+      { "id": 15, "name": "Om Vaghela", "department": "Electronics", "marks": 77 }
+    ]`;
+
+    let allStudents = JSON.parse(rawJSONData);
+    let filteredStudents = [...allStudents];
+    let currentPage = 1;
+
+    const searchInput = document.getElementById('searchInput');
+    const sortSelect = document.getElementById('sortSelect');
+    const studentContainer = document.getElementById('studentContainer');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const pageInfo = document.getElementById('pageInfo');
+
+    function applySearchAndSort() {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      const sortValue = sortSelect.value;
+
+      filteredStudents = allStudents.filter(student => 
+        student.name.toLowerCase().includes(searchTerm) ||
+        student.department.toLowerCase().includes(searchTerm)
+      );
+
+      if (sortValue === 'name-asc') {
+        filteredStudents.sort((a, b) => a.name.localeCompare(b.name));
+      } else if (sortValue === 'name-desc') {
+        filteredStudents.sort((a, b) => b.name.localeCompare(a.name));
+      } else if (sortValue === 'marks-desc') {
+        filteredStudents.sort((a, b) => b.marks - a.marks);
+      } else if (sortValue === 'marks-asc') {
+        filteredStudents.sort((a, b) => a.marks - b.marks);
+      }
+
+      currentPage = 1;
+      renderUI();
+    }
+
+    function renderUI() {
+      studentContainer.innerHTML = '';
+
+      const totalItems = filteredStudents.length;
+      const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE) || 1;
+
+      if (totalItems === 0) {
+        studentContainer.innerHTML = '<p>No students found.</p>';
+        pageInfo.innerText = 'Page 0 of 0';
+        prevBtn.disabled = true;
+        nextBtn.disabled = true;
+        return;
+      }
+
+      const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+      const endIndex = startIndex + ITEMS_PER_PAGE;
+      const paginatedItems = filteredStudents.slice(startIndex, endIndex);
+
+      paginatedItems.forEach(student => {
+        const card = document.createElement('div');
+        card.className = 'student-card';
+        card.innerHTML = `
+          <strong>ID:</strong> ${student.id} | 
+          <strong>Name:</strong> ${student.name} | 
+          <strong>Department:</strong> ${student.department} | 
+          <strong>Marks:</strong> ${student.marks}
+        `;
+        studentContainer.appendChild(card);
+      });
+
+      pageInfo.innerText = `Page ${currentPage} of ${totalPages}`;
+      prevBtn.disabled = currentPage === 1;
+      nextBtn.disabled = currentPage === totalPages;
+    }
+
+    searchInput.addEventListener('input', applySearchAndSort);
+    sortSelect.addEventListener('change', applySearchAndSort);
+
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        renderUI();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const totalPages = Math.ceil(filteredStudents.length / ITEMS_PER_PAGE);
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderUI();
+      }
+    });
+
+    applySearchAndSort();
+  </script>
+</body>
+</html>

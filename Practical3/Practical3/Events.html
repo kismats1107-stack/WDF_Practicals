@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#eef5ff;
+}
+
+/* Header */
+
+header{
+    background:#1e3a8a;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+header h1{
+    text-transform:uppercase;
+    letter-spacing:3px;
+    text-shadow:3px 3px 5px black;
+    animation:heading 2s infinite alternate;
+}
+
+@keyframes heading{
+    from{
+        letter-spacing:3px;
+    }
+    to{
+        letter-spacing:8px;
+    }
+}
+
+/* Navbar */
+
+nav{
+    background:#2563eb;
+    text-align:center;
+    padding:15px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 20px;
+    font-weight:bold;
+    transition:.4s;
+}
+
+nav a:hover{
+    color:yellow;
+    transform:scale(1.1);
+    cursor:pointer;
+}
+
+/* Banner */
+
+.banner{
+    width:100%;
+    height:350px;
+    overflow:hidden;
+}
+
+.banner img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    opacity:.85;
+    clip-path:polygon(0 0,100% 0,100% 90%,50% 100%,0 90%);
+}
+
+/* Main */
+
+main{
+    width:90%;
+    margin:auto;
+    padding:30px 0;
+}
+
+/* About */
+
+.about{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 0 15px gray;
+    line-height:30px;
+    margin-bottom:30px;
+}
+
+.about h2{
+    color:#1e3a8a;
+    text-transform:uppercase;
+    text-shadow:2px 2px 4px lightgray;
+    margin-bottom:15px;
+}
+
+/* Cards */
+
+.cards{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:35px;
+}
+
+.card{
+    width:32%;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 0 12px gray;
+    transition:.5s;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px #2563eb;
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    object-position:center;
+}
+
+.card h3{
+    color:#2563eb;
+    text-align:center;
+    margin:15px;
+    text-decoration:underline;
+}
+
+.card p{
+    padding:15px;
+    line-height:26px;
+}
+
+/* Table */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+    box-shadow:0 0 10px gray;
+}
+
+th{
+    background:#2563eb;
+    color:white;
+}
+
+th,td{
+    border:1px solid gray;
+    padding:12px;
+    text-align:center;
+}
+
+tr:hover{
+    background:#dbeafe;
+}
+
+/* Notice */
+
+.notice{
+    margin-top:30px;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 12px gray;
+    line-height:30px;
+}
+
+.notice h2{
+    color:#1e3a8a;
+    margin-bottom:10px;
+}
+
+/* Footer */
+
+footer{
+    margin-top:40px;
+    background:#1e3a8a;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>College Events</h1>
+</header>
+
+<nav>
+
+<a href="Home.html">Home</a>
+
+<a href="#">Events</a>
+
+<a href="Dashboard.html">Dashboard</a>
+
+<a href="ContactUs.html">Contact Us</a>
+
+<a href="Login.html">Log Out</a>
+
+</nav>
+
+<div class="banner">
+<img src="events-banner.jpg" alt="College Events">
+</div>
+
+<main>
+
+<section class="about">
+
+<h2>Upcoming Events</h2>
+
+<p>
+StudentHub Portal keeps students informed about all academic, technical,
+sports, and cultural events. Participate in exciting activities, improve
+your skills, and enjoy campus life with friends. Every event provides a
+great opportunity to learn something new and showcase your talents.
+</p>
+
+</section>
+
+<section class="cards">
+
+<div class="card">
+
+<img src="workshop.jpg">
+
+<h3>Technical Workshop</h3>
+
+<p>
+Hands-on coding sessions, AI demonstrations, and expert guidance from industry professionals.
+</p>
+
+</div>
+
+<div class="card">
+
+<img src="sports.jpg">
+
+<h3>Sports Day</h3>
+
+<p>
+Indoor and outdoor sports competitions including cricket, volleyball, badminton and athletics.
+</p>
+
+</div>
+
+<div class="card">
+
+<img src="cultural.jpg">
+
+<h3>Cultural Fest</h3>
+
+<p>
+Dance, music, drama, fashion show and fun activities for all students.
+</p>
+
+</div>
+
+</section>
+
+<h2 style="color:#1e3a8a; text-shadow:2px 2px 4px lightgray;">Event Schedule</h2>
+
+<table>
+
+<tr>
+<th>Event</th>
+<th>Date</th>
+<th>Venue</th>
+<th>Time</th>
+</tr>
+
+<tr>
+<td>Freshers Party</td>
+<td>10 August 2026</td>
+<td>Auditorium</td>
+<td>10:00 AM</td>
+</tr>
+
+<tr>
+<td>Technical Workshop</td>
+<td>18 August 2026</td>
+<td>Computer Lab</td>
+<td>11:00 AM</td>
+</tr>
+
+<tr>
+<td>Sports Day</td>
+<td>25 August 2026</td>
+<td>College Ground</td>
+<td>9:00 AM</td>
+</tr>
+
+<tr>
+<td>Cultural Fest</td>
+<td>5 September 2026</td>
+<td>Main Hall</td>
+<td>5:00 PM</td>
+</tr>
+
+</table>
+
+<section class="notice">
+
+<h2>Important Instructions</h2>
+
+<ul style="margin-left:25px; line-height:30px;">
+
+<li>Carry your college ID card.</li>
+
+<li>Complete event registration before the deadline.</li>
+
+<li>Reach the venue 30 minutes early.</li>
+
+<li>Follow the dress code for cultural programs.</li>
+
+<li>Certificates will be provided after successful participation.</li>
+
+</ul>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>&copy; 2026 StudentHub Portal. All Rights Reserved.</p>
+
+</footer>
+
+</body>
+</html>

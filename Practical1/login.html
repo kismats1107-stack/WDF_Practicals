@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login | EduPortal</title>
+    <link rel="stylesheet" href="satyle.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <div class="brand-icon">🎓</div>
+                <span>EduPortal</span>
+            </a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html" class="active">Login</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Login Form Section -->
+    <main class="container form-container">
+        <div class="form-box">
+            <h2>Student Login</h2>
+            <form action="dashboard.html">
+                <div class="form-group">
+                    <label for="enrollment">Enrollment Number</label>
+                    <input type="text" id="enrollment" placeholder="e.g. 25CS099" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+
+                <input type="submit" value="Sign In to Dashboard">
+            </form>
+
+            <div class="form-footer">
+                <p>Don't have an account? <a href="#">Register Here</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            © 2026 Student Management Portal. All rights reserved.
+            <br>
+            <span class="developer-tag">Developed by Kismat Shah</span>
+        </p>
+    </footer>
+
+</body>
+
+</html>

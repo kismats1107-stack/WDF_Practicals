@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudentHub Portal</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f8fb;
+}
+
+/* Header */
+
+header{
+    background:#1e3a8a;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+header h1{
+    text-shadow:3px 3px 5px black;
+}
+
+header p{
+    margin-top:10px;
+}
+
+/* Navbar */
+
+nav{
+    background:#2563eb;
+    text-align:center;
+    padding:15px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 20px;
+    font-size:18px;
+    font-weight:bold;
+    transition:0.4s;
+}
+
+nav a:hover{
+    color:yellow;
+    transform:scale(1.1);
+    cursor:pointer;
+}
+
+/* Banner */
+
+.banner{
+    width:100%;
+    height:350px;
+    overflow:hidden;
+}
+
+.banner img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:.9;
+}
+
+/* Main */
+
+main{
+    width:90%;
+    margin:auto;
+    padding:30px 0;
+}
+
+/* About */
+
+.about{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 15px gray;
+    margin-bottom:30px;
+}
+
+.about h2{
+    color:#1e3a8a;
+    text-shadow:2px 2px 3px lightgray;
+    margin-bottom:15px;
+}
+
+.about p{
+    line-height:28px;
+}
+
+/* Cards */
+
+.cards{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:31%;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 0 12px gray;
+    transition:.5s;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px #2563eb;
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card h3{
+    color:#2563eb;
+    text-align:center;
+    margin:15px 0;
+}
+
+.card p{
+    padding:0 15px 20px;
+    text-align:justify;
+}
+
+/* Notice */
+
+.notice{
+    margin-top:40px;
+    background:#fff;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 0 12px gray;
+}
+
+.notice h2{
+    color:#1e3a8a;
+    margin-bottom:15px;
+}
+
+.notice ul{
+    margin-left:25px;
+    line-height:35px;
+}
+
+/* Footer */
+
+footer{
+    margin-top:40px;
+    background:#1e3a8a;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>StudentHub Portal</h1>
+
+<p>Welcome to the StudentHub Portal</p>
+
+</header>
+
+<nav>
+
+    <a href="Home.html">Home</a>
+
+    <a href="Events.html">Events</a>
+
+    <a href="Dashboard.html">Dashboard</a>
+
+    <a href="ContactUs.html">Contact Us</a>
+
+    <a href="Login.html">Log Out</a>
+
+</nav>
+
+<div class="banner">
+
+<img src="banner.jpg" alt="College Banner">
+
+</div>
+
+<main>
+
+<section class="about">
+
+<h2>About StudentHub</h2>
+
+<p>
+StudentHub Portal is a simple educational website developed for students.
+It provides information related to admissions, events, achievements,
+student activities, and important notices. Students can easily navigate
+through different sections of the portal to access useful information.
+</p>
+
+</section>
+
+<section class="cards">
+
+<div class="card">
+
+<img src="admission.jpg">
+
+<h3>Admissions</h3>
+
+<p>
+Find admission schedules, eligibility criteria,
+required documents, and important dates.
+</p>
+
+</div>
+
+<div class="card">
+
+<img src="event.jpg">
+
+<h3>Events</h3>
+
+<p>
+Stay updated with seminars, workshops,
+technical festivals, sports, and cultural events.
+</p>
+
+</div>
+
+<div class="card">
+
+<img src="achievement.jpg">
+
+<h3>Achievements</h3>
+
+<p>
+Explore student achievements, awards,
+certifications, and placement success stories.
+</p>
+
+</div>
+
+</section>
+
+<section class="notice">
+
+<h2>Latest Notices</h2>
+
+<ul>
+
+<li>Admissions are now open for 2026.</li>
+
+<li>Technical Workshop on 15 August.</li>
+
+<li>Placement Training starts from 20 August.</li>
+
+<li>Visit FAQ page for common student queries.</li>
+
+<li>Annual Sports Week registration has started.</li>
+
+</ul>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>&copy; 2026 StudentHub Portal. All Rights Reserved.</p>
+
+</footer>
+
+</body>
+</html>

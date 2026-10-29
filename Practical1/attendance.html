@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Report | EduPortal</title>
+    <link rel="stylesheet" href="satyle.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="dashboard.html" class="nav-brand">
+                <div class="brand-icon">🎓</div>
+                <span>EduPortal</span>
+            </a>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="attendance.html" class="active">Attendance</a></li>
+                <li><a href="assignments.html">Assignments</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="login.html">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Header -->
+        <header class="hero">
+            <h1>Subject <span>Attendance</span></h1>
+            <p>Monitor your course attendance percentages and ensure compliance with academic minimums.</p>
+        </header>
+
+        <!-- Attendance Table -->
+        <section>
+            <h2 class="section-title">Semester Attendance Summary</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject Name</th>
+                            <th>Total Classes</th>
+                            <th>Classes Attended</th>
+                            <th>Percentage</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>HTML & CSS</b></td>
+                            <td>30</td>
+                            <td>28</td>
+                            <td><b>93.3%</b></td>
+                            <td><span class="badge badge-success">Excellent</span></td>
+                        </tr>
+                        <tr>
+                            <td><b>Python Programming</b></td>
+                            <td>28</td>
+                            <td>26</td>
+                            <td><b>92.8%</b></td>
+                            <td><span class="badge badge-success">Excellent</span></td>
+                        </tr>
+                        <tr>
+                            <td><b>Java</b></td>
+                            <td>30</td>
+                            <td>27</td>
+                            <td><b>90.0%</b></td>
+                            <td><span class="badge badge-success">Good</span></td>
+                        </tr>
+                        <tr>
+                            <td><b>Database Management</b></td>
+                            <td>25</td>
+                            <td>22</td>
+                            <td><b>88.0%</b></td>
+                            <td><span class="badge badge-info">Satisfactory</span></td>
+                        </tr>
+                        <tr>
+                            <td><b>Computer Networks</b></td>
+                            <td>24</td>
+                            <td>21</td>
+                            <td><b>87.5%</b></td>
+                            <td><span class="badge badge-info">Satisfactory</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Attendance Summary Callout -->
+        <section>
+            <div class="notice-list">
+                <div class="notice" style="border-left-color: var(--success);">
+                    <h3>✅ Overall Attendance Status: 90.3%</h3>
+                    <p>
+                        Your overall attendance is well above the university mandatory threshold of <b>75%</b>. You are fully eligible for semester end examinations. Keep up the good performance!
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            © 2026 Student Management Portal. All rights reserved.
+            <br>
+            <span class="developer-tag">Developed by Kismat Shah</span>
+        </p>
+    </footer>
+
+</body>
+
+</html>
